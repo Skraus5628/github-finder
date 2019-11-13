@@ -1,21 +1,10 @@
-import React, { Component } from 'react'
+import React  from 'react';
+import PropTypes from 'prop-types';
 
- class UserItem extends Component {
-    //  all you need for component level state is just state = and object values
-    // state={
-    //     id: 'id',
-    //     login: 'mojombo',
-    //     avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-    //     html_url: 'https://github.com/mojombo'
-    //     }
-    // Now that we are passing the information as props, we do not need this state
-    render() {
-        // to destructure, you can pull values from the state and store them, saves you from
-        // having to say this.state every time
-        const { login, avatar_url, html_url } =this.props.user; 
-        // change this.state to this.props.user to reflect prop change
 
-        return <div className="card text-center">
+ const UserItem = ({user: {login, avatar_url, html_url }}) =>{
+        return (
+        <div className="card text-center">
             <img src={avatar_url} 
             alt="" 
             className="round-img" 
@@ -27,11 +16,47 @@ import React, { Component } from 'react'
                      More
                 </a>
              </div>
-        </div>;
-    }
+        </div>
+        );
 }
 
-export default UserItem
+UserItem.propTypes={
+
+    user: PropTypes.object.isRequired, 
+    // ptor auto generates this ^ ptar gives an array, pta gives an array that isn't required
+};
+
+export default UserItem;
+
+
+
+// study notes:
+
+
+
+
+//  all you need for component level state is just state = and object values
+    // state={
+    //     id: 'id',
+    //     login: 'mojombo',
+    //     avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
+    //     html_url: 'https://github.com/mojombo'
+    //     }
+    // Now that we are passing the information as props, we do not need this state
+
+
+    // to destructure, you can pull values from the state and store them, saves you from
+    // having to say this.state every time
+    // const { login, avatar_url, html_url } =props.user
+    // change this.state to this.props.user to reflect prop change
+    // change from this.props.user to props.user when refactoring to a function. props becomes
+    // passable in the function itself
+        // change this.state to this.props.user to reflect prop change
+        // change from this.props.user to props.user when refactoring to a function. props becomes
+        // passable in the function itself
+
+
+
 
 // Example of using constructor function for component level state
 // constructor() {
@@ -43,3 +68,8 @@ export default UserItem
 //         html_url: 'https://github.com/mojombo'
 //     }
 // }
+
+// const { login, avatar_url, html_url } =props.user
+// can be instead changed to: 
+// const UserItem = ({user: {login, avatar_url, html_url }}) =>{}
+
