@@ -15,7 +15,7 @@ async componentDidMount(){
 
 
 
-  const res = await axios.get('https://api.github.com/users');
+  const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}`);
 
   this.setState({ users: res.data, loading: false });
   
