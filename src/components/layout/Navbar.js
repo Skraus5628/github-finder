@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 const Navbar =({icon, title}) => {
     return (
         <nav className="navbar bg-primary">
-        <h1>
-            <i className={icon} />  {title}
-        </h1>
+            <h1>
+                <i className={icon} />  {title}
+            </h1>
+            <ul>
+                <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
+                    <Link to='/about'>About</Link>
+                </li>
+            </ul>
         </nav>
-        )
-}
+        );
+};
 
  Navbar.defaultProps={
     title: 'Github Finder',
@@ -24,7 +32,8 @@ Navbar.propTypes={
 };
 export default Navbar
 
-
+// Study notes about links:
+// Links are much better than Href in react, hrefs work but tend to erase the state being used when switching pages. Links don't do this!
 // study reference:
 
 
