@@ -18,8 +18,6 @@ const User = ({ match }) => {
         //  eslint-disable-next-line
     }, []);
 
-   
-    
         const {
             name,
             company,
