@@ -7,7 +7,7 @@ import GithubContext from '../../Context/Github/githubContext';
 
 
 
-const User = ({ match }) => {
+const User = ({match}) => {
     const githubContext = useContext(GithubContext);
 
     const { getUser, loading, user, getUserRepos, repos} = githubContext; 
@@ -17,6 +17,7 @@ const User = ({ match }) => {
         getUserRepos(match.params.login);
         //  eslint-disable-next-line
     }, []);
+
 
         const {
             name,
